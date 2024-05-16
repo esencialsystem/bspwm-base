@@ -25,6 +25,9 @@ sudo apt install -y network-manager network-manager-gnome
 #Terminal install
 sudo apt install -y alacritty
 
+# Archive Gestor
+sudo apt install -y ranger
+
 # Sound packages
 sudo apt install -y pulseaudio pavucontrol
 
@@ -39,6 +42,7 @@ sudo apt install -y vlc eog
 
 #Resolucion
 sudo apt install -y arandr
+
 #other
 sudo apt install -y curl 
 
