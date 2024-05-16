@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # xorg display server installation
-sudo apt install -y xorg xserver-xorg xinput 
+sudo apt install -y xorg xserver-xorg xbindkeys xterm xinput 
 
 # PACKAGE INCLUDES build-essential.
 sudo apt install -y build-essential
@@ -18,14 +18,15 @@ cp bspwm /$HOME/.config
 cp polybar /$HOME/.config
 chmod +x $HOME/.config/polybar/launch.sh
 install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
+cd
 # Networking etc
-sudo apt install -y network-manager
+sudo apt install -y network-manager network-manager-gnome
 
 #Terminal install
 sudo apt install -y alacritty
 
 # Sound packages
-sudo apt install -y pulseaudio alsa-utils pavucontrol pamixer
+sudo apt install -y pulseaudio pavucontrol
 
 # Neofetch
 sudo apt install -y neofetch
