@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # xorg display server installation
-sudo apt install -y xorg xserver-xorg xbacklight xinput 
+sudo apt install -y xorg xserver-xorg xinput 
 
 # PACKAGE INCLUDES build-essential.
 sudo apt install -y build-essential
@@ -13,21 +13,13 @@ mkdir ~/Screenshots/
 sudo apt install -y bspwm suckless-tools sxhkd polybar
 
 mkdir -p ~/.config
-cp -r /bspwm-base/config* /$HOME/.config
-install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
+cd bspwm-base/config
+cp bspwm /$HOME/.config
+cp polybar /$HOME/.config
 chmod +x $HOME/.config/polybar/launch.sh
-
-# Network File Tools/System Events
-sudo apt install -y dialog mtools dosfstools avahi-daemon acpi acpid gvfs-backends
-
-sudo systemctl enable avahi-daemon
-sudo systemctl enable acpid
-
+install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
 # Networking etc
-sudo apt install -y network-manager network-manager-gnome
-
-# file manager Thunar ranger  
-sudo apt install -y thunar thunar-archive-plugin thunar-volman file-roller ranger
+sudo apt install -y network-manager
 
 #Terminal install
 sudo apt install -y alacritty
@@ -46,24 +38,7 @@ sudo apt install -y vlc eog
 
 #Resolucion
 sudo apt install -y arandr
-
-# Others
-sudo apt install -y numlockx udns-utils whois curl 
-
-# Dependencies for Ly Console Manager
-sudo apt install -y libpam0g-dev libxcb-xkb-dev
-
-# Install Ly Console Display Manager
-cd 
-cd Downloads
-git clone --recurse-submodules https://github.com/fairyglade/ly
-cd ly/
-make
-sudo make install installsystemd
-sudo systemctl enable ly.service
-
-cp /bspwm-base/.bashrc /$HOME
-
-sudo apt autoremove
+#other
+sudo apt install -y curl 
 
 printf "\e[1;32mYou can now reboot! Thanks you.\e[0m\n"
